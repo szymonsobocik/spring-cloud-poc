@@ -1,3 +1,3 @@
 spring:
   application:
-    name: trf-microservice-two
+    name: poc-microservice-two
