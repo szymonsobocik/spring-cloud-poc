@@ -21,6 +21,5 @@ dependencyManagement {
 }
 
 dependencies {
-    compile project(':poc-microservice-two-api')
     compile 'org.springframework.cloud:spring-cloud-starter-eureka'
 }

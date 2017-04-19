@@ -33,7 +33,7 @@ public class MicroserviceOneApplication {
         public Map<String, Object> serviceInstancesByApplicationName(
                 @PathVariable String applicationName) {
             Map<String, Object> response = new HashMap<>();
-            response.put("message", "Response from TWO");
+            response.put("message", "Response from ONE");
             response.put("serviceDiscoveryInstances", this.discoveryClient.getInstances(applicationName));
             return response;
         }

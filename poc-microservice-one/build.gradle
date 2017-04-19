@@ -21,8 +21,6 @@ dependencyManagement {
 }
 
 dependencies {
-    compile project(':poc-microservice-two-api')
-
     compile 'org.springframework.cloud:spring-cloud-starter-eureka'
     compile 'org.springframework.cloud:spring-cloud-starter-feign'
     compile("org.projectlombok:lombok:$lombokVersion")
