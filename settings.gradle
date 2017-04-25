@@ -1,5 +1,6 @@
 rootProject.name = 'spring-cloud-poc'
 
+include 'poc-auth-server'
 include 'poc-microservice-one'
 include 'poc-microservice-two'
 include 'poc-service-discovery'

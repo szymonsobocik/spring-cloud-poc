@@ -1,3 +1,8 @@
 server:
   port: 8081
-
+#security:
+#  oauth2:
+#    client:
+#      client-id: client-one
+#      client-secret: client-one-secret
+#      scope: poc-scope

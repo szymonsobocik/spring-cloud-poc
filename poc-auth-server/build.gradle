@@ -22,8 +22,10 @@ dependencyManagement {
 
 dependencies {
     compile 'org.springframework.cloud:spring-cloud-starter-eureka'
-    compile 'org.springframework.cloud:spring-cloud-starter-feign'
     compile 'org.springframework.cloud:spring-cloud-security'
+
+    compile 'org.springframework.security.oauth:spring-security-oauth2'
+
     compile("org.projectlombok:lombok:$lombokVersion")
 
     compile("org.slf4j:slf4j-api")

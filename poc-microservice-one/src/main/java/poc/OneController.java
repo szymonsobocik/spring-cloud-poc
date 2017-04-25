@@ -26,7 +26,6 @@ public class OneController {
         return helloWorld;
     }
 
-
     @RequestMapping(value = "/hello/{name}", method = RequestMethod.GET)
     public String getHello(@PathVariable("name") String name) {
         log.info("Hello in ONE");

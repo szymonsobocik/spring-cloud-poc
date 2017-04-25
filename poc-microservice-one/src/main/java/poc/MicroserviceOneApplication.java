@@ -22,7 +22,6 @@ public class MicroserviceOneApplication {
         SpringApplication.run(MicroserviceOneApplication.class, args);
     }
 
-
     @RestController
     class ServiceInstanceRestController {
 
