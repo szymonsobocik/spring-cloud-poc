@@ -4,9 +4,9 @@ server:
 security:
   oauth2:
     client:
-      authorized-grant-types: password
+      authorized-grant-types: authorization_code
       client-id: client-one
-      client-secret: client-one-secret
+#      client-secret: client-one-secret
       scope: poc-scope
 
 

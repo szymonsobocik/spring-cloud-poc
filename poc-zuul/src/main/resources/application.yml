@@ -1,2 +1,12 @@
 server:
   port: 8080
+
+security:
+  oauth2:
+    client:
+      client-id: client-one
+      client-secret: client-one-secret
+      access-token-uri: poc-auth-server/oauth/token
+      user-authorization-uri: poc-auth-server/oauth/authorize
+    resource:
+      user-info-uri: poc-auth-server/user

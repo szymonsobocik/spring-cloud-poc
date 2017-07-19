@@ -23,4 +23,6 @@ dependencyManagement {
 dependencies {
     compile 'org.springframework.cloud:spring-cloud-starter-eureka'
     compile 'org.springframework.cloud:spring-cloud-starter-zuul'
+    compile 'org.springframework.cloud:spring-cloud-security'
+    compile 'org.springframework.security.oauth:spring-security-oauth2'
 }
