@@ -6,7 +6,14 @@ security:
     client:
       client-id: client-one
       client-secret: client-one-secret
-      access-token-uri: poc-auth-server/oauth/token
-      user-authorization-uri: poc-auth-server/oauth/authorize
+      access-token-uri: http://localhost:9999/oauth/token
+#      access-token-uri: poc-auth-server/oauth/token
+      user-authorization-uri: http://localhost:9999/oauth/authorize
+#      user-authorization-uri: poc-auth-server/oauth/authorize
     resource:
-      user-info-uri: poc-auth-server/user
+#      user-info-uri: poc-auth-server/user
+#      user-info-uri: http://localhost:9999/oauth/check_token
+      token-info-uri: http://localhost:9999/oauth/check_token
+
+logging.level:
+  org.springframework: TRACE

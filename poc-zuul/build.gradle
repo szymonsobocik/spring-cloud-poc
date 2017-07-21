@@ -25,4 +25,9 @@ dependencies {
     compile 'org.springframework.cloud:spring-cloud-starter-zuul'
     compile 'org.springframework.cloud:spring-cloud-security'
     compile 'org.springframework.security.oauth:spring-security-oauth2'
+
+    compile("org.projectlombok:lombok:$lombokVersion")
+
+    compile("org.slf4j:slf4j-api")
+    compile("ch.qos.logback:logback-classic")
 }
