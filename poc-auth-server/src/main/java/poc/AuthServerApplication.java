@@ -12,17 +12,11 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
-import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
-import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.security.Principal;
 
 @SpringBootApplication
-//@EnableDiscoveryClient
+@EnableAuthorizationServer
 public class AuthServerApplication {
 
     public static void main(String[] args) {
@@ -53,7 +47,6 @@ public class AuthServerApplication {
         }
 
         @Configuration
-        @EnableAuthorizationServer
         class AuthorizationServerConfiguration extends AuthorizationServerConfigurerAdapter {
 
             @Autowired
@@ -66,7 +59,11 @@ public class AuthServerApplication {
                         .secret("client-one-secret")
                         .authorizedGrantTypes("authorization_code")
                         .scopes("openid")
-                        .authorities("ROLE_TRUSTED_CLIENT");
+                        .authorities("ROLE_TRUSTED_CLIENT")
+                        .and()
+                        .withClient("resource-server")
+                        .secret("resource-server-secret")
+                        .authorities("ROLE_RESOURCE_SERVER");
             }
 
             @Override
@@ -76,7 +73,7 @@ public class AuthServerApplication {
 
             @Override
             public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
-                security.checkTokenAccess("hasAuthority('ROLE_TRUSTED_CLIENT')");
+                security.checkTokenAccess("hasAuthority('ROLE_TRUSTED_CLIENT') || hasAuthority('ROLE_RESOURCE_SERVER')");
 
             }
         }

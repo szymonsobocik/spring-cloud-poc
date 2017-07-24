@@ -2,7 +2,7 @@ package poc;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,18 +19,22 @@ public class OneController {
     }
 
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
-    public String getHelloWorld() {
-        log.info("Hello world in ONE");
-        String helloWorld = twoClient.getHelloWorld();
-        log.info("Received from TWO: {}", helloWorld);
-        return helloWorld;
+    public String helloOne() {
+        log.info("Hello One");
+        return "Hello from One";
     }
 
-    @RequestMapping(value = "/hello/{name}", method = RequestMethod.GET)
-    public String getHello(@PathVariable("name") String name) {
+    @RequestMapping("/details")
+    public Authentication details(Authentication authentication) {
+        log.info("Authentication from One: {}", authentication);
+        return authentication;
+    }
+
+    @RequestMapping(value = "/resource", method = RequestMethod.GET)
+    public String getResource() {
         log.info("Hello in ONE");
-        String helloWorld = twoClient.getHello(name);
-        log.info("Received from TWO: {}", helloWorld);
-        return helloWorld;
+        String resource = twoClient.getResource();
+        log.info("Received from TWO: {}", resource);
+        return resource;
     }
 }
