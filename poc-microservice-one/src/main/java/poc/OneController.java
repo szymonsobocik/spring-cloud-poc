@@ -34,7 +34,7 @@ public class OneController {
     public String getResource() {
         log.info("Hello in ONE");
         String resource = twoClient.getResource();
-        log.info("Received from TWO: {}", resource);
-        return resource;
+        log.info("I'm in poc-microservice-one and received resource from TWO: {}", resource);
+        return "I'm in poc-microservice-one and received resource from TWO: " + resource;
     }
 }

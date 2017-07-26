@@ -13,3 +13,9 @@ security:
 
 logging.level:
   org.springframework: DEBUG
+
+zuul:
+  routes:
+    front:
+      path: /api/**
+      url: http://localhost:8090
